@@ -11,16 +11,37 @@ export type ExperienceProps = SliceComponentProps<Content.ExperienceSlice>;
 /**
  * Component for "Experience" Slices.
  */
-const Experience = ({ slice }: ExperienceProps): JSX.Element => {
+
+
+const Experience = (): JSX.Element => {
+  
+  const experienceEntries = [
+    {
+      title: "Senior Interactive Designer",
+      time_period: "2019 - Present",
+      institution: "Google",
+      description: "Led the design team in creating visually stunning and interactive web experiences. Implemented cutting-edge UI/UX designs, collaborated with developers to bring concepts to life, and ensured brand consistency across digital platforms."
+    },
+    {
+      title: "Master of Science in Human-Computer Interaction",
+      time_period: "2016 - 2018",
+      institution: "SUNY",
+      description: "Pursued a Master's degree in Human-Computer Interaction, specializing in designing user-friendly interfaces and conducting user research. Gained expertise in creating seamless digital experiences that prioritize user needs and preferences."
+    },
+    {
+      title: "Bachelor of Science in Computer Science",
+      time_period: "2012 - 2016",
+      institution: "Penn",
+      description: "Completed a Bachelor's degree in Computer Science with a focus on foundational programming concepts, algorithms, and web development. Developed a strong understanding of software development principles."
+    },
+  ];
+
   return (
-    <Bounded
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
+    <Bounded>
       <Heading as="h2" size="lg">
-        {slice.primary.heading}
+        Experience
       </Heading>
-      {slice.items.map((item, index) => (
+      {experienceEntries.map((item, index) => (
         <div key={index} className="ml-6 mt-8 max-w-prose md:ml-12 md:mt-16">
           <Heading as="h3" size="sm">
             {item.title}
@@ -32,7 +53,7 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
             <span>{item.institution}</span>
           </div>
           <div className="prose prose-lg prose-invert mt-4">
-            <PrismicRichText field={item.description} />
+            <p>{item.description}</p>
           </div>
         </div>
       ))}
