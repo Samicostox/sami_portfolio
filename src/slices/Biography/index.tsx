@@ -3,7 +3,7 @@ import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
-import { ImageField } from "@/types";
+
 
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
@@ -15,6 +15,16 @@ export type BiographyProps = SliceComponentProps<Content.BiographySlice>;
 /**
  * Component for "Biography" Slices.
  */
+
+type ImageField = {
+  url: string;
+  alt: string;
+  dimensions: {
+    width: number;
+    height: number;
+  };
+};
+
 const Biography = ({ slice }: BiographyProps): JSX.Element => {
   const fullname = "Sami Ribardiere"
   const avatar: ImageField = {  // Change type declaration here to match expected type
