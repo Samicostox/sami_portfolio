@@ -5,6 +5,7 @@ import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
 
 
+
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
@@ -39,17 +40,21 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
 
   const cvLinkField = {
     url: cvurl,
-    target: "_blank" // assuming you want the link to open in a new tab
+    target: "_blank",
+    link_type: 'Web' // assuming you want the link to open in a new tab
   };
 
 
-  const description = [
+  const description2 = [
     {
       type: 'paragraph',
       text: "Hey, I’m Sami! I grew up in Paris and love all things creative. From the misty forests to the vibrant city streets, my surroundings have always fueled my passion for design and coding. As a self-taught developer, I found my calling in blending artistic flair with technical skill. My journey has led me to specialize in front-end development, where I craft interactive experiences that are not just functional, but also visually stunning. When I'm not coding, you'll find me experimenting with digital art or exploring the latest in web animation. Join me as I continue to push the boundaries of what's possible in the digital world!",
       spans: [], // This can include styling like bold, italics etc.
     }
   ];
+  const description = "Hey, I’m Sami! I grew up in Paris and love all things creative. From the misty forests to the vibrant city streets, my surroundings have always fueled my passion for design and coding. As a self-taught developer, I found my calling in blending artistic flair with technical skill. My journey has led me to specialize in front-end development, where I craft interactive experiences that are not just functional, but also visually stunning. When I'm not coding, you'll find me experimenting with digital art or exploring the latest in web animation. Join me as I continue to push the boundaries of what's possible in the digital world!";
+
+  
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -61,7 +66,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
         </Heading>
 
         <div className="prose prose-xl prose-slate prose-invert col-start-1">
-          <PrismicRichText field={description} />
+        <p>{description}</p>
         </div>
         <Button
           linkField={cvLinkField}
