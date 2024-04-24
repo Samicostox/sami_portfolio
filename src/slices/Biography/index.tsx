@@ -1,7 +1,12 @@
-import Avatar from "@/components/Avatar";
+
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
+import Avatar from "@/components/Avatar"; // Import the ImageField type from Avatar component
+import { ImageField } from "@prismicio/client";
+
+// Rest of your code remains unchanged
+
 import { Content } from "@prismicio/client";
 
 
@@ -17,24 +22,20 @@ export type BiographyProps = SliceComponentProps<Content.BiographySlice>;
  * Component for "Biography" Slices.
  */
 
-type ImageField = {
-  url: string;
-  alt: string;
-  dimensions: {
-    width: number;
-    height: number;
-  };
-};
 
 const Biography = ({ slice }: BiographyProps): JSX.Element => {
   const fullname = "Sami Ribardiere"
-  const avatar: ImageField = {  // Change type declaration here to match expected type
-    url: "https://res.cloudinary.com/dl2adjye7/image/upload/v1713966136/Photo_individual_sami_3_iy71id.jpg",
-    alt: "Sami Ribardiere",  // Provide an alternative text for the image
+  const avatar: ImageField = { 
     dimensions: {
-      width: 400,  // Example width
-      height: 400  // Example height
-    }
+      width: 400,
+      height: 400
+    },
+    alt: "Sami Ribardiere",
+    url: "https://res.cloudinary.com/dl2adjye7/image/upload/v1713966136/Photo_individual_sami_3_iy71id.jpg",
+    // Add dummy values for the additional properties expected by ImageField
+    id: "avatar_id",
+    edit: { x: 0, y: 0, zoom: 1, background: "" },
+    copyright: "avatar_copyright"
   };
   const cvurl = "https://res.cloudinary.com/dl2adjye7/image/upload/v1713278705/barclays_2_dv09jt.pdf"
 
