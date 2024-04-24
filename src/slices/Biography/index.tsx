@@ -3,6 +3,7 @@ import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
+import { ImageField } from "@/types";
 
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
